@@ -1,11 +1,11 @@
-import React, { createContext, useState, useEffect } from 'react'
+import React, { createContext, useState } from 'react'
 import { login, register } from '../api/auth'
 
 interface AuthContextValue {
   token: string | null
   userEmail: string | null
-  signIn: (email: string, password: string) => Promise<void>
-  signUp: (email: string, password: string) => Promise<void>
+  signIn: (email: string, passwd: string) => Promise<void>
+  signUp: (email: string, passwd: string) => Promise<void>
   signOut: () => void
 }
 
@@ -17,19 +17,22 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const signIn = async (email: string, passwd: string) => {
     const res = await login({ email, passwd })
-    setToken(res.data.result.token)
+    const tokenValue = res.data.data?.token
+    setToken(tokenValue)
     setUserEmail(email)
-    localStorage.setItem('token', res.data.result.token)
+    localStorage.setItem('token', tokenValue)
     localStorage.setItem('email', email)
-    console.log('Usuario autenticado:', res.data.result.token)
   }
+
   const signUp = async (email: string, passwd: string) => {
     const res = await register({ email, passwd })
-    setToken(res.data.token)
+    const tokenValue = res.data.data?.token
+    setToken(tokenValue)
     setUserEmail(email)
-    localStorage.setItem('token', res.data.token)
+    localStorage.setItem('token', tokenValue)
     localStorage.setItem('email', email)
   }
+
   const signOut = () => {
     setToken(null)
     setUserEmail(null)

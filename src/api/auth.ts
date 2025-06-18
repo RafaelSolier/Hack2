@@ -1,7 +1,7 @@
-import axios from 'axios'
+import { api } from './client'
 
-export const login = (data: { email: string, passwd: string }) =>
-  axios.post('http://198.211.105.95:8080/authentication/login', data)
+export const login = (data: { email: string; passwd: string }) =>
+  api.post('/authentication/login', data)
 
-export const register = (data: { email: string, passwd: string }) =>
-  axios.post('http://198.211.105.95:8080/authentication/register', data)
+export const register = (data: { email: string; passwd: string }) =>
+  api.post('/authentication/register', data)

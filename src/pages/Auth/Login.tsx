@@ -10,7 +10,7 @@ export default function Login() {
   const submit = async (e: React.FormEvent) => {
     e.preventDefault()
     await signIn(email, password)
-    nav('/')
+    nav('/dashboard')
   }
   return (
     <form onSubmit={submit} className="max-w-sm mx-auto p-4">

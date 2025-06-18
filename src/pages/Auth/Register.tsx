@@ -10,7 +10,7 @@ export default function Register() {
   const submit = async (e: React.FormEvent) => {
     e.preventDefault()
     await signUp(email, password)
-    nav('/')
+    nav('/login')
   }
   return (
     <form onSubmit={submit} className="max-w-sm mx-auto p-4">
