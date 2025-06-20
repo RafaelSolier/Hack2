@@ -16,8 +16,6 @@ export const getDetails = (year: number, month: number, categoryId: number) =>
     params: { year, month, categoryId } 
   });
 
-
-
 export const createExpense = (payload: ExpenseCategoryCreate) => 
   privateApi.post('/expenses', payload);
 

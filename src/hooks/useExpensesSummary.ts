@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
-import { getExpensesCategory, getSummary, deleteExpense, createExpense} from '../api/expenses'
+import { getExpensesCategory, getSummary, deleteExpense, createExpense, getDetails} from '../api/expenses'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import type { ExpenseCategoryCreate } from '../types/expenseCategory'
+import type { Filters } from '../types/filters'
 
 export const useExpensesGetCategory = () =>
     useQuery({
@@ -46,3 +46,14 @@ export const useCreateExpense = () => {
     })
 }
 
+
+export const useExpensesDetail = (filters: Filters) => {
+  return useQuery({
+    // ['expenses', filters.year, filters.month, filters.categoryId],
+    // () =>
+    //   getDetails(filters.year, filters.month, filters.categoryId)
+    //     .then(res => res.data),
+    queryKey: ['expensesDetail'],
+    queryFn: () => getDetails(filters.year, filters.month, filters.categoryId)}
+  )
+}
