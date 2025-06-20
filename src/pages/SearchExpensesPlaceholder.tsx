@@ -79,7 +79,7 @@ const SearchExpenses = () => {
               <div className="text-sm text-gray-600">
                 {exp.date} - {exp.amount}
               </div>
-              <div className="text-xs text-gray-400">{exp.expenseCategory.name}</div>
+              <div className="text-xs text-gray-400">{exp.category.name}</div>
             </li>
           ))}
         </ul>
