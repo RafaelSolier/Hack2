@@ -1,7 +1,15 @@
+import type { ExpenseCategory, ExpenseCategoryCreate } from './expenseCategory';
+
 export interface Expense {
   id: number
+  expenseCategory: ExpenseCategory
+  year: number
+  month: number
   amount: number
-  description: string
+}
+
+export interface ExpenseCreate {
+  category: ExpenseCategoryCreate
   date: string
-  categoryId: number
+  amount: number
 }
