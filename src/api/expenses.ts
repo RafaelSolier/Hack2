@@ -2,8 +2,8 @@
 import axios from 'axios';
 import type { ExpenseCategoryCreate } from '../types/expenseCategory';
 
-const API_BASE_URL = 'http://localhost:8000';
-// const API_BASE_URL = 'http://198.211.105.95:8080';
+// const API_BASE_URL = 'http://localhost:8000';
+const API_BASE_URL = 'http://198.211.105.95:8080';
 
 // Instancia base sin token (para login/register)
 export const api = axios.create({
@@ -34,8 +34,6 @@ export const getDetails = (year: number, month: number, categoryId: number) =>
   privateApi.get('/expenses/detail', { 
     params: { year, month, categoryId } 
   });
-
-
 
 export const createExpense = (payload: ExpenseCategoryCreate) => 
   privateApi.post('/expenses', payload);

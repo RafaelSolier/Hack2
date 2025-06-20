@@ -133,9 +133,9 @@ const Dashboard: React.FC = () => {
         title="Agregar Nuevo Gasto"
       >
         <ExpenseForm 
-          onSubmit={handleCreateExpense}
+          // onSubmit={handleCreateExpense}
           onCancel={closeModal}
-          isLoading={createExpenseMutation.isLoading}
+          // isLoading={createExpenseMutation.isLoading}
         />
       </Modal>
     </div>
