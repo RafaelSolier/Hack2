@@ -6,8 +6,8 @@ import Login from '../pages/Auth/Login'
 import Register from '../pages/Auth/Register'
 import Dashboard from '../pages/Dashboard'
 import CategoryDetail from '../pages/CategoryDetail'
-import SearchExpenses from '../pages/SearchExpensesPlaceholder ' 
-import Goals from '../pages/GoalsPlaceholder' 
+import SearchExpenses from '../pages/SearchExpensesPlaceholder'
+import Goals from '../pages/Goals'
 
 // Componente Layout que incluye la Navbar
 const Layout: React.FC<{ children: React.ReactElement }> = ({ children }) => {

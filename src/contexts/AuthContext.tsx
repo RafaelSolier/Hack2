@@ -16,19 +16,27 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [userEmail, setUserEmail] = useState<string | null>(localStorage.getItem('email'))
 
   const signIn = async (email: string, passwd: string) => {
-    const res = await login({ email, passwd })
-    setToken(res.data.result.token)
-    setUserEmail(email)
-    localStorage.setItem('token', res.data.result.token)
-    localStorage.setItem('email', email)
-    console.log('Usuario autenticado:', res.data.result.token)
+    try {
+      const res = await login({ email, passwd })
+      setToken(res.data.result.token)
+      setUserEmail(email)
+      localStorage.setItem('token', res.data.result.token)
+      localStorage.setItem('email', email)
+    } catch (err) {
+      throw err
+    }
   }
+
   const signUp = async (email: string, passwd: string) => {
-    const res = await register({ email, passwd })
-    setToken(res.data.token)
-    setUserEmail(email)
-    localStorage.setItem('token', res.data.token)
-    localStorage.setItem('email', email)
+    try {
+      const res = await register({ email, passwd })
+      setToken(res.data.token)
+      setUserEmail(email)
+      localStorage.setItem('token', res.data.token)
+      localStorage.setItem('email', email)
+    } catch (err) {
+      throw err
+    }
   }
   const signOut = () => {
     setToken(null)
